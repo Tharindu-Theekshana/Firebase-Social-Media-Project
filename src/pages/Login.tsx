@@ -1,6 +1,7 @@
 import {auth,provider} from "../config/firebase"
 import {signInWithPopup} from "firebase/auth"
 import { useNavigate } from "react-router-dom";
+import './Login.css';
 
 export default function Login() {
 
@@ -16,9 +17,20 @@ export default function Login() {
     }
 
   return (
-    <div>
-      <p>Sign In With Google Account</p>
-      <button onClick={signInWithGoogle}>Sign In</button>
+    
+
+    <div className="login-container">
+      <div className="login-box">
+        <h2 className="login-title">Sign In</h2>
+        <button className="google-button" onClick={signInWithGoogle}>
+          <img
+            src="https://www.svgrepo.com/show/355037/google.svg"
+            alt="Google logo"
+            className="google-icon"
+          />
+          Sign in with Google
+        </button>
+      </div>
     </div>
   )
 }
