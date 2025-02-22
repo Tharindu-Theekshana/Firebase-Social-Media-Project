@@ -19,9 +19,10 @@ export default function Navbar() {
       <Link to={"/"}>
         <button className="nav-button">Home</button>
       </Link>
-      <Link to={"/login"}>
+      {! user ?<Link to={"/login"}>
         <button className="nav-button">Login</button>
-      </Link>
+      </Link> : <Link to={'/createpost'}><button className="nav-button">Create Post</button></Link>}
+      
 
       {user && (
         <div className="user-info">

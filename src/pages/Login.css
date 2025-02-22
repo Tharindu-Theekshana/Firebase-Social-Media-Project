@@ -38,6 +38,7 @@
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease;
+    box-shadow: 0px 2px 2px grey;
   }
   
   .google-button:hover {
