@@ -1,0 +1,25 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 5px;
+    margin-top: 50px;
+    margin-left: 160px;
+    background-color: rgb(70, 133, 200);
+    padding: 40px;
+    padding-bottom: 60px;
+    box-shadow: 0px 2px 8px grey;
+}
+.text{
+    font-size: 30px;
+    text-shadow: 1px 1px 1px rgba(55, 54, 54, 0.709);
+
+}
+.form input{
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+
+}
