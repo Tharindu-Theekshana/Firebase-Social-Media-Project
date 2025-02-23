@@ -42,7 +42,7 @@
   }
   
   .google-button:hover {
-    background-color:black/* Login Page Styles */
+    background-color:rgb(20, 124, 235) ;
 
     .login-container {
       display: flex;

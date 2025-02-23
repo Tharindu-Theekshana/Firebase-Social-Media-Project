@@ -36,3 +36,11 @@
     
 }
 
+.submitForm:hover{
+  background-color: rgb(59, 107, 202);
+}
+
+.error{
+    margin: 1px;
+    color: rgb(187, 28, 28);
+}
