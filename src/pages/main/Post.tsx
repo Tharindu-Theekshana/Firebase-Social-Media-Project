@@ -1,8 +1,8 @@
 import React from 'react'
-import{post as Ipost } from "./Main"
+import{post  } from "./Main"
 
 interface props {
-    post: Ipost;
+    post: post;
 }
 
 export default function Post(props: props) {
