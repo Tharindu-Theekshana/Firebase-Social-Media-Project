@@ -1,5 +1,5 @@
 import React from 'react'
-import{post  } from "./Main"
+import{post} from "./Main"
 
 interface props {
     post: post;
