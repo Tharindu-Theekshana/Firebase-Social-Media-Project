@@ -3,16 +3,20 @@ import{post} from "./Main"
 import '../../styles/Post.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../../config/firebase';
-import { addDoc, collection ,query,getDocs,where} from 'firebase/firestore';
+import { addDoc, collection ,query,getDocs,where, doc} from 'firebase/firestore';
 
 interface props {
     post: post;
 }
 
+interface like {
+  userId: string;
+}
+
 export default function Post(props: props) {
     const {post} = props;
 
-    const [likeAmount, setLikeAmount] = useState<number | null>(null);
+    const [likes, setLikes] = useState<like[] | null>(null);
 
     const [user] = useAuthState(auth);
 
@@ -22,12 +26,22 @@ export default function Post(props: props) {
 
     const getLike = async () => {
       const data =await getDocs(likeDoc);
-      setLikeAmount(data.docs.length);
+      setLikes(data.docs.map((doc)=> ({userId: doc.data().userId})));
     }
 
     const addLike = async () =>{
-      await addDoc(likeRef,{userId: user?.uid, postId: post.id});
+      try {await addDoc(likeRef,{userId: user?.uid, postId: post.id});
+      if(user){
+        setLikes((prev)=> prev?[...prev, {userId: user.uid}]: [{userId: user.uid}]);
+      }
+    }catch (err){
+      console.log(err);
+    }
+
     };
+
+    const isUserLiked = likes?.find((like)=> like.userId === user?.uid);
+
     useEffect(()=>{
       getLike();
     },[])
@@ -36,8 +50,8 @@ export default function Post(props: props) {
       <div className='username'><p>@{post.username}</p></div>
       <div className='title'><h2>{post.title}</h2></div>
       <div className='description'><p>{post.description}</p>
-      <button onClick={addLike} className='likeButton'>&#128077;</button>
-       {likeAmount !== null && likeAmount > 0 && <div className='displayLikes'>&#128077; {likeAmount}</div>}</div>
+      <button onClick={addLike} className='likeButton'>{isUserLiked?<>&#128078;</> :<>&#128077;</>}</button>
+       {likes !== null && likes.length > 0 && <div className='displayLikes'>&#128077; {likes.length}</div>}</div>
       
       
     </div>
