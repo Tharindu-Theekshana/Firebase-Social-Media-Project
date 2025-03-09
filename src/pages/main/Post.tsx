@@ -3,7 +3,7 @@ import{post} from "./Main"
 import '../../styles/Post.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../../config/firebase';
-import { addDoc, collection ,query,getDocs,where, doc} from 'firebase/firestore';
+import { addDoc, collection ,query,getDocs,where, deleteDoc,doc} from 'firebase/firestore';
 
 interface props {
     post: post;
@@ -40,6 +40,17 @@ export default function Post(props: props) {
 
     };
 
+    const removeLike = async () => {
+      try{
+       const likeToDeleteQuery = query(likeRef,where("postId","==",post.id),where("userId","==",user?.uid));
+       const likeToDeleteData = await getDocs(likeToDeleteQuery);
+       const likeToDelete = doc(db,"like",likeToDeleteData.docs[0].id);
+       await deleteDoc(likeToDelete);
+      }catch(err){
+        console.log(err);
+      }
+    }
+
     const isUserLiked = likes?.find((like)=> like.userId === user?.uid);
 
     useEffect(()=>{
@@ -50,7 +61,7 @@ export default function Post(props: props) {
       <div className='username'><p>@{post.username}</p></div>
       <div className='title'><h2>{post.title}</h2></div>
       <div className='description'><p>{post.description}</p>
-      <button onClick={addLike} className='likeButton'>{isUserLiked?<>&#128078;</> :<>&#128077;</>}</button>
+      <button onClick={isUserLiked?removeLike:addLike} className='likeButton'>{isUserLiked?<>&#128078;</> :<>&#128077;</>}</button>
        {likes !== null && likes.length > 0 && <div className='displayLikes'>&#128077; {likes.length}</div>}</div>
       
       
