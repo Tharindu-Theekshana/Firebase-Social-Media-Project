@@ -1,73 +1,53 @@
 .container {
-    background: #f4f4f4;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 15px 0;
-    margin-left: 400px;
     max-width: 600px;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    min-height: 200px;
-    margin-bottom: 20px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    
-}
-.container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.title h2 {
-    font-size: 22px;
-    font-weight: bold;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .username {
+    color: #6c63ff;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .title h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
     color: #333;
-    
-
-}
-.description p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    text-overflow: ellipsis;
-}
-
-.username p {
-    
-    font-size: 14px;
-    color: #888;
-    font-style: italic;
-    text-align: right;
-   
-    
-}
-
-.likeButton{
-    width: 100%;
-    background: rgb(221, 221, 247);
+  }
+  
+  .description p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+  
+  .likeButton {
+    background-color: transparent;
     border: none;
-    padding: 6px 10px;
-    border-radius: 8px;
+    font-size: 1.5rem;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
-}
-
-.likeButton:hover{
-    background: rgb(155, 155, 189);
-    transform: scale(1.1);
-}
-
-.displayLikes {
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-    margin-left: -550px;
-    margin-top: -180px;
-}
-
+    margin-right: 0.5rem;
+    transition: transform 0.2s;
+  }
+  
+  .likeButton:hover {
+    transform: scale(1.2);
+  }
+  
+  .displayLikes {
+    display: inline-block;
+    font-size: 1rem;
+    color: #6c63ff;
+    vertical-align: middle;
+    margin-left: 500px;
+    
+  }
+  

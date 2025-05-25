@@ -1,51 +1,53 @@
 .navbar {
-    background: linear-gradient(to right, #4a90e2, #0052d4);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 30px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
-    
-  }
+  background: linear-gradient(to right, #4a90e2, #0052d4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
+.nav-button, .logout-button {
+  background-color: #ffffff;
+  color: #0052d4;
+  border: none;
+  padding: 10px 18px;
+  margin: 0 8px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
 
-  
-  /* Buttons */
-  .nav-button, .logout-button {
-    background-color: white;
-    color: #0052d4;
-    border: none;
-    padding: 10px 16px;
-    margin: 0 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .nav-button:hover, .logout-button:hover {
-    background-color: #cde1f8;
-    color: #003b9b;
-  }
-  
-  /* User Info */
-  .user-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .user-name {
-    font-size: 16px;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid white;
-  }
+.nav-button:hover, .logout-button:hover {
+  background-color: #e6f0ff;
+  color: #003b9b;
+  transform: translateY(-1px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name {
+  font-size: 15px;
+  color: white;
+  font-weight: 600;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+}
